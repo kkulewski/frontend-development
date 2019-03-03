@@ -94,3 +94,44 @@ function displayBikes() {
         console.log("#" + index + " " + element.make + " " + element.model);
     }
 }
+
+
+// ### TEST ### 
+
+console.log("\n## INITIAL DATA ##");
+console.log(db);
+
+console.log("\n## GET BIKE WITH ID == 2 ##");
+console.log(getBikeById(2));
+
+console.log("\n## GET BIKES WITH MAKE == BMC ##");
+console.log(getBikeByMake("BMC"));
+
+console.log("\n## DELETE BIKE WITH ID == 3 ##");
+deleteBike(3);
+console.log(db);
+
+console.log("\n## ADD NEW BIKE ##");
+createBike(4, "Daewoo", "A1", 200.0, false, ["pink, white"], "Daewoo", 4);
+console.log(db);
+
+console.log("\n## ADD DUPLICATE BIKE ##");
+createBike(4, "Daewoo", "A1", 200.0, false, ["pink, white"], "Daewoo", 4);
+
+console.log("\n## UPDATE BIKE WITH ID == 1 ##")
+updateBike(1, {
+    id: 1,
+    make: "Pinarello",
+    model: "Two",
+    price: 9999.0,
+    tandem: false,
+    colors: ["black"],
+    shifter: {
+        make: "Shimano",
+        gears: 8
+    }
+})
+console.log(db);
+
+console.log("\n## DISPLAY BIKES ##")
+displayBikes();
