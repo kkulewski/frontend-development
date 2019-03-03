@@ -38,3 +38,59 @@ var bike3 = {
         gears: 3
     }
 }
+
+
+// ### CRUD ###
+var db = [bike1, bike2, bike3];
+
+function createBike(id, make, model, price, tandem, colors, shifterMake, shifterGears) {
+    var newBike = {
+        id: id,
+        make: make,
+        model: model,
+        price: price,
+        colors: colors,
+        shifterMake: shifterMake,
+        shifterGears: shifterGears
+    };
+
+    addBike(newBike);
+}
+
+function addBike(bike) {
+
+    if (db.find(x => x.id == bike.id))
+    {
+        console.log("ERROR! Bike with this ID already exists.");
+        return;
+    }
+
+    db.push(bike);
+}
+
+function getBikeById(id) {
+    return db.find(x => x.id == id);
+}
+
+function getBikeByMake(make) {
+    return db.filter(x => x.make == make);
+}
+
+function deleteBike(id) {
+    var bikeIndex = db.findIndex(x => x.id == id);
+    db.splice(bikeIndex, 1);
+}
+
+function updateBike(id, newBike) {
+    var bikeIndex = db.findIndex(x => x.id == id);
+    db[bikeIndex] = newBike;
+}
+
+function displayBikes() {
+
+    db.forEach(printBike);
+
+    function printBike(element, index, array) {
+        console.log("#" + index + " " + element.make + " " + element.model);
+    }
+}
