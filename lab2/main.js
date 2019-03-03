@@ -44,6 +44,7 @@ var bike3 = {
 var db = [bike1, bike2, bike3];
 
 function createBike(id, make, model, price, tandem, colors, shifterMake, shifterGears) {
+
     var newBike = {
         id: id,
         make: make,
@@ -54,18 +55,13 @@ function createBike(id, make, model, price, tandem, colors, shifterMake, shifter
         shifterGears: shifterGears
     };
 
-    addBike(newBike);
-}
-
-function addBike(bike) {
-
-    if (db.find(x => x.id == bike.id))
+    if (db.find(x => x.id == id))
     {
         console.log("ERROR! Bike with this ID already exists.");
         return;
     }
 
-    db.push(bike);
+    db.push(newBike);
 }
 
 function getBikeById(id) {
@@ -76,14 +72,14 @@ function getBikeByMake(make) {
     return db.filter(x => x.make == make);
 }
 
-function deleteBike(id) {
-    var bikeIndex = db.findIndex(x => x.id == id);
-    db.splice(bikeIndex, 1);
-}
-
 function updateBike(id, newBike) {
     var bikeIndex = db.findIndex(x => x.id == id);
     db[bikeIndex] = newBike;
+}
+
+function deleteBike(id) {
+    var bikeIndex = db.findIndex(x => x.id == id);
+    db.splice(bikeIndex, 1);
 }
 
 function displayBikes() {
