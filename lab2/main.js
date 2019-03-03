@@ -68,8 +68,16 @@ function getBikeById(id) {
     return db.find(x => x.id == id);
 }
 
-function getBikeByMake(make) {
+function getBikesByMake(make) {
     return db.filter(x => x.make == make);
+}
+
+function getBikesByModel(model) {
+    return db.filter(x => x.model == model);
+}
+
+function getBikesByTandem(isTandem) {
+    return db.filter(x => x.tandem == isTandem);
 }
 
 function updateBike(id, newBike) {
@@ -101,7 +109,10 @@ console.log("\n## GET BIKE WITH ID == 2 ##");
 console.log(getBikeById(2));
 
 console.log("\n## GET BIKES WITH MAKE == BMC ##");
-console.log(getBikeByMake("BMC"));
+console.log(getBikesByMake("BMC"));
+
+console.log("\n## GET TANDEM BIKES");
+console.log(getBikesByTandem(true));
 
 console.log("\n## DELETE BIKE WITH ID == 3 ##");
 deleteBike(3);
