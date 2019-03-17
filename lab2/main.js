@@ -85,7 +85,8 @@ function updateBike(id, newBike) {
 
     if (bikeIndex == -1)
     {
-        console.log("ERROR! Bike with this ID does not exists.")
+        console.log("ERROR! Bike with this ID does not exists.");
+        return;
     }
 
     db[bikeIndex] = newBike;
@@ -96,7 +97,8 @@ function deleteBike(id) {
 
     if (bikeIndex == -1)
     {
-        console.log("ERROR! Bike with this ID does not exists.")
+        console.log("ERROR! Bike with this ID does not exists.");
+        return;
     }
 
     db.splice(bikeIndex, 1);
