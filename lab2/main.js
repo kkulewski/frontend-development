@@ -82,11 +82,23 @@ function getBikesByTandem(isTandem) {
 
 function updateBike(id, newBike) {
     var bikeIndex = db.findIndex(function(bike) { return bike.id == id });
+
+    if (bikeIndex == -1)
+    {
+        console.log("ERROR! Bike with this ID does not exists.")
+    }
+
     db[bikeIndex] = newBike;
 }
 
 function deleteBike(id) {
     var bikeIndex = db.findIndex(function(bike) { return bike.id == id });
+
+    if (bikeIndex == -1)
+    {
+        console.log("ERROR! Bike with this ID does not exists.")
+    }
+
     db.splice(bikeIndex, 1);
 }
 
