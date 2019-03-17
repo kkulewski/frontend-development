@@ -56,7 +56,12 @@ function createBike(id, make, model, price, isTandem, colors, shifterMake, shift
         shifterGears: shifterGears
     };
 
-    if (db.find(function(bike) { return bike.id == id }))
+    addBike(newBike);
+}
+
+function addBike(newBike) {
+
+    if (db.find(function(bike) { return bike.id == newBike.id }))
     {
         console.log("ERROR! Bike with this ID already exists.");
         return;
