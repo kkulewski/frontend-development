@@ -5,7 +5,7 @@ var bike1 = {
     make: "Pinarello",
     model: "One",
     price: 500.0,
-    tandem: false,
+    isTandem: false,
     colors: ["red", "green"],
     shifter: {
         make: "Shimano",
@@ -18,7 +18,7 @@ var bike2 = {
     make: "BMC",
     model: "X1",
     price: 2500.0,
-    tandem: false,
+    isTandem: false,
     colors: ["white", "black", "blue"],
     shifter: {
         make: "FSA",
@@ -31,7 +31,7 @@ var bike3 = {
     make: "BMC",
     model: "X2",
     price: 2500.0,
-    tandem: true,
+    isTandem: true,
     colors: ["black"],
     shifter: {
         make: "FSA",
@@ -43,13 +43,14 @@ var bike3 = {
 // ### CRUD ###
 var db = [bike1, bike2, bike3];
 
-function createBike(id, make, model, price, tandem, colors, shifterMake, shifterGears) {
+function createBike(id, make, model, price, isTandem, colors, shifterMake, shifterGears) {
 
     var newBike = {
         id: id,
         make: make,
         model: model,
         price: price,
+        isTandem: isTandem,
         colors: colors,
         shifterMake: shifterMake,
         shifterGears: shifterGears
@@ -77,7 +78,7 @@ function getBikesByModel(model) {
 }
 
 function getBikesByTandem(isTandem) {
-    return db.filter(function(bike) { return bike.tandem == isTandem });
+    return db.filter(function(bike) { return bike.isTandem == isTandem });
 }
 
 function updateBike(id, newBike) {
@@ -145,7 +146,7 @@ updateBike(1, {
     make: "Pinarello",
     model: "Two",
     price: 9999.0,
-    tandem: false,
+    isTandem: false,
     colors: ["black"],
     shifter: {
         make: "Shimano",
