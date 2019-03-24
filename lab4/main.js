@@ -53,19 +53,16 @@ MountainBike.prototype.getTires = function () {
 }
 
 // instance
-var aMountainBike = new MountainBike(
+var mtb = new MountainBike(
     4,
     "Daewoo",
     "A1",
     200.0,
     false,
     ["pink, white"],
-    "Daewoo",
     new Shifter("Shimano", 5),
     "Pirelli"
 );
-
-console.log(aMountainBike.getTires())
 
 
 
@@ -124,6 +121,19 @@ var bikeRepository = (function () {
 
 })();
 
+
+
+/*
+    TESTS
+*/
 var someBike = bikeRepository.getBikeById(2);
-console.log("## GET BIKE WITH ID = 2");
+console.log("\n## GET BIKE WITH ID = 2");
 console.log(someBike);
+
+console.log("\n## CREATE NEW BIKE AND FETCH IT");
+bikeRepository.createBike(6, "BMC", "Model1", 900.00, false, ["white", "red"], "Shimano", 6);
+var createdBike = bikeRepository.getBikeById(6);
+console.log(createdBike);
+
+console.log("\n## CREATE DUPLICATE BIKE");
+bikeRepository.createBike(6, "BMC", "Model1", 900.00, false, ["white", "red"], "Shimano", 6);
