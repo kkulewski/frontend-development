@@ -2,16 +2,20 @@
     BIKE WITH INHERITANCE
 */
 
-function Bike(id, make, model, price, isTandem, colors, shifterMake, shifterGears) {
+function Shifter(make, gears) {
+    this.make = make;
+    this.gears = gears;
+};
+
+function Bike(id, make, model, price, isTandem, colors, shifter) {
     this.id = id;
     this.make = make;
     this.model = model;
     this.price = price;
     this.isTandem = isTandem;
     this.colors = colors;
-    this.shifterMake = shifterMake,
-    this.shifterGears = shifterGears
-}
+    this.shifter = shifter;
+};
 
 Bike.prototype = { 
     getId: function () {
@@ -35,8 +39,8 @@ Bike.prototype.repaint = function(color) {
 }
 
 // ===========
-function MountainBike(id, make, model, price, isTandem, colors, shifterMake, shifterGears, tires) {
-    Bike.call(id, make, model, price, isTandem, colors, shifterMake, shifterGears);
+function MountainBike(id, make, model, price, isTandem, colors, shifter, tires) {
+    Bike.call(id, make, model, price, isTandem, colors, shifter);
     this.tires = tires;
 }
 
@@ -44,12 +48,23 @@ MountainBike.prototype = Object.create(Bike.prototype);
 MountainBike.prototype.constructor = MountainBike;
 
 // extend
-Circle.prototype.getTires = function () {
+MountainBike.prototype.getTires = function () {
     return this.tires;
 }
 
 // instance
-var aMountainBike = new MountainBike(4, "Daewoo", "A1", 200.0, false, ["pink, white"], "Daewoo", 4)
+var aMountainBike = new MountainBike(
+    4,
+    "Daewoo",
+    "A1",
+    200.0,
+    false,
+    ["pink, white"],
+    "Daewoo",
+    new Shifter("Shimano", 5),
+    "Pirelli"
+);
+
 console.log(aMountainBike.getTires())
 
 
@@ -61,9 +76,9 @@ console.log(aMountainBike.getTires())
 var bikeRepository = (function () {
 
     var bikes = [
-        new Bike(1, "Pinarello", "One", 500.0, false, ["red", "green"], { make: "Shimano", gears: 7 }),
-        new Bike(2, "BMC", "X1", 2500.0, false, ["white", "black", "blue"], { make: "FSA", gears: 5 }),
-        new Bike(3, "BMC", "X2", 2500.0, true, ["black"], { make: "FSA", gears: 3 })
+        new Bike(1, "Pinarello", "One", 500.0, false, ["red", "green"], new Shifter("Shimano", 7)),
+        new Bike(2, "BMC", "X1", 2500.0, false, ["white", "black", "blue"], new Shifter("FSA", 5)),
+        new Bike(3, "BMC", "X2", 2500.0, true, ["black"], new Shifter("FSA", 3))
     ];
 
     var addBike = function (newBike) {
@@ -73,7 +88,7 @@ var bikeRepository = (function () {
             return;
         }
         bikes.push(newBike);
-    },
+    };
 
     return {
 
@@ -82,7 +97,7 @@ var bikeRepository = (function () {
         },
 
         createBike: function(id, make, model, price, isTandem, colors, shifterMake, shifterGears) {
-            var newBike = new Bike(id, make, model, price, isTandem, colors, shifterMake, shifterGears);
+            var newBike = new Bike(id, make, model, price, isTandem, colors, new Shifter(shifterMake, shifterGears));
             addBike(newBike);
         },
 
@@ -107,4 +122,8 @@ var bikeRepository = (function () {
         }
     }
 
-})
+})();
+
+var someBike = bikeRepository.getBikeById(2);
+console.log("## GET BIKE WITH ID = 2");
+console.log(someBike);
