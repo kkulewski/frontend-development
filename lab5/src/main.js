@@ -104,7 +104,7 @@ class BikeRepository {
 
     add(newBike) {
         if (this._bikes.find(bike => bike.id == newBike.id)) {
-            console.log("ERROR! Bike with this ID already exists.");
+            console.log(`ERROR! Bike with ID: ${newBike.id} already exists.`);
             return;
         }
         this._bikes.push(newBike);
@@ -126,7 +126,7 @@ class BikeRepository {
     update(id, newBike) {
         let bikeIndex = _bikes.findIndex(bike => bike.id == id);
         if (bikeIndex == -1) {
-            console.log("ERROR! Bike with this ID does not exists.");
+            console.log(`ERROR! Bike with ID: ${id} does not exists.`);
             return;
         }
         this._bikes[bikeIndex] = newBike;
@@ -135,7 +135,7 @@ class BikeRepository {
     delete(id) {
         var bikeIndex = this._bikes.findIndex(bike => bike.id == id); 
         if (bikeIndex == -1) {
-            console.log("ERROR! Bike with this ID does not exists.");
+            console.log(`ERROR! Bike with ID: ${id} does not exists.`);
             return;
         }
         this._bikes.splice(bikeIndex, 1);
