@@ -5,8 +5,24 @@
 class Shifter {
 
     constructor(make, gears) {
-        this.make = make,
-        this.gears = gears
+        this._make = make,
+        this._gears = gears
+    }
+
+    get make() {
+        return this._make;
+    }
+
+    set make(value) {
+        this._make = value;
+    }
+
+    get gears() {
+        return this._gears;
+    }
+
+    set gears(gears) {
+        this._gears = gears;
     }
 
 }
@@ -14,12 +30,12 @@ class Shifter {
 class Bike {
     constructor(id, make, model, price, isTandem, colors, shifter) {
         this._id = id,
-        this.make = make,
-        this.model = model,
-        this.price = price,
-        this.isTandem = isTandem,
-        this.colors = colors,
-        this.shifter = shifter
+        this._make = make,
+        this._model = model,
+        this._price = price,
+        this._isTandem = isTandem,
+        this._colors = colors,
+        this._shifter = shifter
     }
 
     get id() {
