@@ -158,7 +158,7 @@ console.log(someBike);
 console.log("\n## CREATE NEW BIKE AND FETCH IT");
 let shifter = new Shifter("Shimano", 6)
 bikeRepository.create(6, "BMC", "Model1", 900.00, false, ["white", "red"], shifter);
-var createdBike = bikeRepository.getById(6);
+let createdBike = bikeRepository.getById(6);
 console.log(createdBike);
 
 console.log("\n## CREATE DUPLICATE BIKE");
