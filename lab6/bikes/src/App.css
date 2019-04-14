@@ -8,8 +8,12 @@
   pointer-events: none;
 }
 
-.App-move {
-  animation: App-logo-move infinite 0.2s alternate;
+.App-moveX {
+  animation: App-logo-moveX infinite 0.1s alternate;
+}
+
+.App-moveY {
+  animation: App-logo-moveY infinite 0.15s alternate;
 }
 
 .App-header {
@@ -36,11 +40,20 @@
   }
 }
 
-@keyframes App-logo-move {
+@keyframes App-logo-moveX {
   from {
-    transform: translateX(-30px);
+    transform: translateX(-15px);
   }
   to {
-    transform: translateX(30px);
+    transform: translateX(15px);
+  }
+}
+
+@keyframes App-logo-moveY {
+  from {
+    transform: translateY(-15px);
+  }
+  to {
+    transform: translateY(15px);
   }
 }
