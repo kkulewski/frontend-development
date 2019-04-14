@@ -1,51 +1,41 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import './App.css';
 
-function Avatar(props) {
-    return (<div>Avatar: {props.user.name}</div>)
-}
+class Clock extends Component {
 
-function UserInfo(props) {
-    return (
-        <div>
-            <Avatar user={props.about.author} />
-            <div className="UserInfo-name">
-                {props.about.author.name}
-            </div>
-        </div>
-    )
-}
-
-function CommentText(props) {
-    return (
-        <div>Text: {props.text}</div>
-    )
-}
-
-function CommentDate(props) {
-    return (
-        <div>Date: {props.date}</div>
-    )
-}
-
-function Comment(props) {
-    return(
-        <div className="Comment">
-            <UserInfo about={props.data.about}/>
-            <CommentText text={props.data.text}/>
-            <CommentDate date={props.data.date}/>
-        </div>
-    )
-}
-
-const data = {
-    about: {
-        author: { 
-            name: 'Jan',
+    constructor(props) {
+        super(props);
+        this.nazwa = props.name;
+        this.state = {
+            date: new Date()
         }
-    },
-    text: "Some text",
-    date: new Date().toLocaleDateString()
+    }
+
+    tick() {
+        // invalid: this.state.date = new Date();
+        // valid:
+        this.setState({
+            date: new Date()
+        })
+    }
+
+    componentDidMount() {
+        this.timerId = setInterval(() => this.tick(), 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerId);
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <h1>{this.nazwa}</h1>
+                <h2 className="App-logo">{this.state.date.toLocaleTimeString()}</h2>
+            </div>
+        )
+    }
 }
 
-ReactDOM.render(<Comment data={data}/>, document.getElementById("root"))
+ReactDOM.render(<Clock name='Static Clock'/>, document.getElementById("root"))
