@@ -1,6 +1,9 @@
 .Dashboard {
   text-align: center;
   border: solid 2px #282c34;
+  background-color: #ddffdd;
+  width: 70%;
+  margin: auto;
 }
 
 .Dashboard-link {
