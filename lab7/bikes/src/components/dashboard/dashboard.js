@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './dashboard.css';
 import { BikeList } from './bike-list.js';
 import { BikeDetails } from './bike-details.js';
-import { Bike } from '../../models/bike.jsx'
+import { BikeRepository } from '../../services/bike-repository.jsx';
 
 export class Dashboard extends Component {
 
@@ -10,12 +10,9 @@ export class Dashboard extends Component {
         super(props);
         this.title = props.title;
 
+        this.bikeRepository = new BikeRepository();
         this.state = {
-            bikes: [
-                new Bike(1, "Pinarello", "One", 500.0, false, ["red", "green"]),
-                new Bike(2, "BMC", "X1", 2500.0, false, ["white", "black", "blue"]),
-                new Bike(3, "BMC", "X2", 2500.0, true, ["black"])
-            ],
+            bikes: this.bikeRepository.getAll(),
             activeBike: 0
         }
     }

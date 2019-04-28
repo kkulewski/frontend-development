@@ -8,7 +8,7 @@ export class BikeList extends Component {
             <div className="BikeList">
                 <h3>List</h3>
                 <ol>
-                    {this.props.bikes.map(bike => <li>{bike.make} {bike.model} {bike.price}</li>)}
+                    {this.props.bikes.map(bike => <li key={bike.toString()}>{bike.make} {bike.model} {bike.price}</li>)}
                 </ol>
             </div>
         )
