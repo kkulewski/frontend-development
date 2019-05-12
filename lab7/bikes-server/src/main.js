@@ -1,4 +1,4 @@
-var BikeRepository = require('./services/bike-repository.js')
+import BikeRepository from './services/bike-repository.js';
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -6,7 +6,7 @@ const app = express();
 const port = 4000;
 app.use(bodyParser.json());
 
-var bikeRepository = new BikeRepository();
+const bikeRepository = new BikeRepository();
 
 app.get('/', (req, res) => res.send('Bike-Server listening...'));
 app.get('/api', (req, res) => res.send('Bike-Server listening...'));

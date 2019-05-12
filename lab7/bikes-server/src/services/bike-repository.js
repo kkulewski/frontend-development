@@ -1,6 +1,6 @@
-var Bike = require('../models/bike.js')
+import Bike from '../models/bike.js';
 
-module.exports = class BikeRepository {
+export default class BikeRepository {
 
     constructor() {
         this.bikes = [

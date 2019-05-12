@@ -1,4 +1,4 @@
-module.exports = class Bike {
+export default class Bike {
 
     constructor(id, make, model, price, isTandem, colors) {
         this.id = id;
