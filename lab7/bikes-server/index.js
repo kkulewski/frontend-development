@@ -17,7 +17,7 @@ app.get('/api/bike', (req, res) => {
 });
 
 app.post('/api/bike', (req, res) => {
-    const bike = req.body.bike;
+    const bike = req.body;
     bikeRepository.add(bike);
     res.send({"message":"bike added"});
 })
