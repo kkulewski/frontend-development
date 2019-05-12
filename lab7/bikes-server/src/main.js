@@ -1,4 +1,4 @@
-var BikeRepository = require('../bikes-server/services/bike-repository.js')
+var BikeRepository = require('./services/bike-repository.js')
 
 const express = require('express');
 const bodyParser = require('body-parser');
