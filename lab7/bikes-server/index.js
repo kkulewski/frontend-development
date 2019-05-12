@@ -26,21 +26,21 @@ app.get('/api/bike/:id', (req, res) => {
 
 app.post('/api/bike', (req, res) => {
     const bike = req.body;
-    bikeRepository.add(bike);
-    res.send({"message":"bike added"});
+    const result = bikeRepository.add(bike);
+    res.send({ "message" : result });
 });
 
 app.put('/api/bike/:id', (req, res) => {
     const id = parseInt(req.params.id);
     const newBike = req.body;
-    bikeRepository.update(id, newBike);
-    res.send({"message":"bike updated"});
+    const result = bikeRepository.update(id, newBike);
+    res.send({ "message" : result });
 })
 
 app.delete('/api/bike/:id', (req, res) => {
     const id = parseInt(req.params.id);
-    bikeRepository.delete(id);
-    res.send({"message":"bike deleted"});
+    const result = bikeRepository.delete(id);
+    res.send({ "message" : result });
 });
 
 app.listen(port, () => console.log("Bike-Server listening on port " + port));

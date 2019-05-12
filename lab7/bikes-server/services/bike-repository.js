@@ -12,15 +12,10 @@ module.exports = class BikeRepository {
 
     add(newBike) {
         if (this.bikes.find(bike => bike.id === newBike.id)) {
-            console.log(`ERROR! Bike with ID: ${newBike.id} already exists.`);
-            return;
+            return `ERROR! Bike with ID: ${newBike.id} already exists.`;
         }
         this.bikes.push(newBike);
-    }
-
-    create(id, make, model, price, isTandem, colors) {
-        let newBike = new Bike(id, make, model, price, isTandem, colors);
-        this.add(newBike);
+        return `Bike with ID: ${newBike.id} added.`;
     }
 
     getById(id) {
@@ -34,19 +29,19 @@ module.exports = class BikeRepository {
     update(id, newBike) {
         let bikeIndex = this.bikes.findIndex(bike => bike.id === id);
         if (bikeIndex === -1) {
-            console.log(`ERROR! Bike with ID: ${id} does not exists.`);
-            return;
+            return `ERROR! Bike with ID: ${id} does not exists.`;
         }
         this.bikes[bikeIndex] = newBike;
+        return `Bike with ID: ${id} updated.`;
     }
 
     delete(id) {
         var bikeIndex = this.bikes.findIndex(bike => bike.id === id); 
         if (bikeIndex === -1) {
-            console.log(`ERROR! Bike with ID: ${id} does not exists.`);
-            return;
+            return `ERROR! Bike with ID: ${id} does not exists.`;
         }
         this.bikes.splice(bikeIndex, 1);
+        return `Bike with ID: ${id} deleted.`;
     }
 
 }
