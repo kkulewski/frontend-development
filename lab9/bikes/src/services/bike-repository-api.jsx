@@ -1,37 +1,27 @@
 import Axios from 'axios';
 
-const API_URL = 'localhost:4000/api'
+const API_URL = 'http://localhost:4000/api'
 
 export class BikeRepository {
 
     async add(newBike) {
-        const res = await Axios
-            .post(`${API_URL}/bike`, newBike);
-        return res.data;
+        return await Axios.post(`${API_URL}/bike`, newBike).then(res => res.data);
     }
 
     async getById(id) {
-        const res = await Axios
-            .get(`${API_URL}/bike/${id}`);
-        return res.data;
+        return await Axios.get(`${API_URL}/bike/${id}`).then(res => res.data);
     }
 
     async getAll() {
-        const res = await Axios
-            .get(`${API_URL}/bike`);
-        return res.data;
+        return await Axios.get(`${API_URL}/bike`).then(res => res.data);
     }
 
     async update(id, newBike) {
-        const res = await Axios
-            .put(`${API_URL}/bike/${id}`, newBike);
-        return res.data;
+        return await Axios.put(`${API_URL}/bike/${id}`, newBike).then(res => res.data);
     }
 
     async delete(id) {
-        const res = await Axios
-            .delete(`${API_URL}/bike/${id}`);
-        return res.data;
+        return await Axios.delete(`${API_URL}/bike/${id}`).then(res => res.data);
     }
 
 }
