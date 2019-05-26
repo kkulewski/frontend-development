@@ -3,11 +3,18 @@ import './bike-details.css';
 
 export class BikeDetails extends Component {
 
+
+    renderBikeDetails() {
+        if (this.props.bike) {
+            return Object.keys(this.props.bike).map(k => <p key={k}>{k}: {this.props.bike[k]}</p>);
+        }
+    }
+
     render() {
         return (
             <div className="BikeDetails">
                 <h3>Details</h3>
-                <p>{Object.keys(this.props.bike).map(k => <p>{k}: {this.props.bike[k]}</p>)}</p>
+                <div>{this.renderBikeDetails()}</div>
             </div>
         )
     }

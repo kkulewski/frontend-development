@@ -23,14 +23,8 @@ export class Dashboard extends Component {
         }
     }
 
-    tick() {
-    }
-
     componentDidMount() {
         this.fetchBikes();
-    }
-
-    componentWillUnmount() {
     }
 
     async fetchBikes() {
@@ -49,12 +43,20 @@ export class Dashboard extends Component {
         this.fetchBikes();
     }
 
+    handleSelectionChange = val => {
+        this.setState({ activeBike: val })
+    }
+
     render() {
 
         return (
             <div className="Dashboard">
                 <h2>{this.title}</h2>
-                <div>
+                <BikeList bikes={this.state.bikes} selectionHandler={this.handleSelectionChange}/>
+                <br/>
+                <BikeDetails bike={this.state.bikes[this.state.activeBike]}/>
+                <br/>
+                <div className="BikeForm">
                     <form onSubmit={this.handleSubmit}>
                         <label>ID:</label><br/>
                         <input value={this.state.bikeId} onChange={event => this.setState({bikeId: event.target.value})} /><br/>
@@ -67,7 +69,7 @@ export class Dashboard extends Component {
                         <button>Submit</button>
                     </form>
                 </div>
-                <div>{this.renderBikes()}</div>
+                <br/>
             </div>
         )
     }
