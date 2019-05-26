@@ -1,0 +1,11 @@
+.BikeList {
+  text-align: center;
+  border: solid 2px #000000;
+  width: 60%;
+  margin: auto;
+  background-color: #61dafb;
+}
+
+.BikeList-link {
+  color: #61dafb;
+}
