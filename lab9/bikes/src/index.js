@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Dashboard} from './components/dashboard/dashboard.jsx'
+import { Home } from './components/home/home'
 
-ReactDOM.render(<Dashboard title='Bikes dashboard'/>, document.getElementById("root"))
+ReactDOM.render(<Home title='Bikes'/>, document.getElementById("root"))

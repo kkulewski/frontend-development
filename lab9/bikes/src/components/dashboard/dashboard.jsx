@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './dashboard.css';
+import '../../index.css';
 import { BikeRepository } from '../../services/bike-repository-api.jsx';
 import { Bike } from '../../models/bike';
 import { BikeList } from './bike-list.jsx';
@@ -50,8 +51,7 @@ export class Dashboard extends Component {
     render() {
 
         return (
-            <div className="Dashboard">
-                <h2>{this.title}</h2>
+            <div className="content-box">
                 <BikeList bikes={this.state.bikes} selectionHandler={this.handleSelectionChange}/>
                 <br/>
                 <BikeDetails bike={this.state.bikes[this.state.activeBike]}/>

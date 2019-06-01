@@ -1,17 +1,11 @@
-.Dashboard {
-  text-align: center;
-  border: solid 2px #282c34;
-  background-color: #ddffdd;
-  width: 70%;
-  margin: auto;
-}
-
 .BikeForm {
   text-align: center;
-  border: solid 2px #000000;
+  border: solid 1px #000000;
   width: 60%;
   margin: auto;
+  padding: 10px;
   background-color: #61dafb;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Dashboard-link {
