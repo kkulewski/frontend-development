@@ -11,5 +11,5 @@ Dziedzina: rowery
 [lab4 (ES5 - BikeRepository with inheritance)](lab4)  
 [lab5 (ES6 - BikeRepository with classes, lambda)](lab5)  
 [lab6 (ES6 - React - Hello World)](lab6)  
-[lab7+8 (ES6 - Bikes - React app with express.js API)](lab7)
-[lab9 (ES6 - Bikes - react client + express.js API)](lab9)
+[lab7+8 (ES6 - Bikes - React app with express.js API)](lab7)  
+[lab9 (ES6 - Bikes - react client + express.js API)](lab9)  
