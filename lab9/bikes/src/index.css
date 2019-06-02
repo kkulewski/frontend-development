@@ -13,6 +13,10 @@ code {
     monospace;
 }
 
+input {
+  width: 200px;
+}
+
 .content-box {
   text-align: center;
   width: 70%;

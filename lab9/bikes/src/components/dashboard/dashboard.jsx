@@ -16,7 +16,8 @@ export class Dashboard extends Component {
         
         this.state = {
             bikes: [],
-            activeBike: 0
+            activeBike: 0,
+            info: ""
         }
     }
 
@@ -34,7 +35,8 @@ export class Dashboard extends Component {
     }
 
     handleSubmit = async (bike) => {
-        await this.bikeRepository.add(bike);
+        const result = await this.bikeRepository.add(bike);
+        this.setState({ info: Object.keys(result).includes("message") ? result.message : ""});
         this.fetchBikes();
     }
 
@@ -46,11 +48,12 @@ export class Dashboard extends Component {
 
         return (
             <div className="content-box">
+                <p>{this.state.info}</p>
+                <BikeForm onBikeSubmit={this.handleSubmit}/>
+                <br/>
                 <BikeList bikes={this.state.bikes} selectionHandler={this.handleSelectionChange}/>
                 <br/>
                 <BikeDetails bike={this.state.bikes[this.state.activeBike]}/>
-                <br/>
-                <BikeForm onBikeSubmit={this.handleSubmit}/>
                 <br/>
             </div>
         )

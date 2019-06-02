@@ -36,7 +36,7 @@ export class BikeForm extends Component {
                     <br/>
                     <label>Price:</label><br/>
                     <input value={this.state.bikePrice} onChange={event => this.setState({bikePrice: event.target.value})} />
-                    <br/>
+                    <br/><br/>
                     <button>Submit</button>
                 </form>
             </div>
