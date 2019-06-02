@@ -6,8 +6,16 @@ export class BikeList extends Component {
     renderBikeList()
     {
         if (this.props.bikes) {
-            return this.props.bikes.map(bike => <li key={bike.id.toString()} onClick={() => this.props.selectionHandler(this.props.bikes.indexOf(bike))}><button className="list-item">{bike.make} {bike.model} {bike.price}</button></li>);
+            return this.props.bikes.map(bike => this.renderBikeListElement(bike));
         }
+    }
+
+    renderBikeListElement(bike) {
+        return (
+            <li key={bike.id.toString()} onClick={() => this.props.selectionHandler(this.props.bikes.indexOf(bike))}>
+                <button className="list-item">{bike.make} {bike.model} {bike.price}</button>
+            </li>
+        )
     }
 
     render() {

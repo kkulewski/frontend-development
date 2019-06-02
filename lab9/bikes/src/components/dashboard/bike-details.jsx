@@ -6,7 +6,7 @@ export class BikeDetails extends Component {
 
     renderBikeDetails() {
         if (this.props.bike) {
-            return Object.keys(this.props.bike).map(k => <p key={k}>{k}: {this.props.bike[k]}</p>);
+            return Object.keys(this.props.bike).map(k => <p key={k}>{k}: {this.props.bike[k].toString()}</p>);
         }
     }
 
