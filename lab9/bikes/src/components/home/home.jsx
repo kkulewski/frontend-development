@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-
-import './home.css';
-
 import { Dashboard } from '../dashboard/dashboard';
 import { About } from '../about/about';
 import { Converter } from '../converter/converter';
+import './home.css';
 
 export class Home extends Component {
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "../../index.css";
 import { Bike } from '../../models/bike';
+import "../../index.css";
 
 export class BikeForm extends Component {
 

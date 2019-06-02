@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "../../index.css";
 import { PLN } from "./pln";
 import { USD } from "./usd";
+import "../../index.css";
 
 export class Converter extends Component {
 

@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import './dashboard.css';
-import '../../index.css';
 import { BikeRepository } from '../../services/bike-repository-api.jsx';
 import { BikeList } from './bike-list.jsx';
 import { BikeDetails } from './bike-details.jsx';
 import { BikeForm } from './bike-form.jsx';
+import './dashboard.css';
+import '../../index.css';
 
 export class Dashboard extends Component {
 
