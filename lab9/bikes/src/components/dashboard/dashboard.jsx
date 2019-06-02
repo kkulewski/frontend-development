@@ -34,14 +34,14 @@ export class Dashboard extends Component {
         return this.state.bikes.map(x => x.make + " " + x.model).join(", ");
     }
 
-    handleSubmit = async (bike) => {
-        const result = await this.bikeRepository.add(bike);
+    handleSubmit = async (formBike) => {
+        const result = await this.bikeRepository.add(formBike);
         this.setState({ info: Object.keys(result).includes("message") ? result.message : ""});
         this.fetchBikes();
     }
 
-    handleSelectionChange = val => {
-        this.setState({ activeBike: val })
+    handleSelectionChange = newIndex => {
+        this.setState({ activeBike: newIndex })
     }
 
     render() {
